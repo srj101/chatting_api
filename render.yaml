@@ -1,0 +1,12 @@
+services:
+  # A web service
+  - type: web
+    name: chat-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        value: postgres://neondb_owner:npg_XfWmUIwPS58x@ep-patient-king-a1b9k0ij-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+      - key: PYTHONUNBUFFERED
+        value: 1

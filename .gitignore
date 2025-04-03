@@ -106,3 +106,4 @@ venv.bak/
 
 # Static files
 static/
+.vercel
